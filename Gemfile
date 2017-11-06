@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # PostgreSQL for database management
-gem 'pg', '0.18.4'
+gem 'pg', '0.21.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use Puma as the app server
@@ -47,6 +47,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'hoe', '~> 3.12'
+  gem 'hoe-bundler', '~> 1.0'
+  gem 'hoe-deveiate', '~> 0.7'
+  gem 'hoe-highline', '~> 0.2'
+  gem 'hoe-mercurial', '~> 1.4'
+  gem 'rake-compiler', '~> 0.9'
+  gem 'rake-compiler-dock', '~> 0.3'
+  gem 'rdoc', '~> 4.0'
+  gem 'rspec', '~> 3.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

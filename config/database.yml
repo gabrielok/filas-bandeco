@@ -1,16 +1,19 @@
 development:
   adapter: postgresql
+  encoding: SQL_ASCII
   database: my_database_development
   pool: 5
   timeout: 5000
 test:
   adapter: postgresql
+  encoding: SQL_ASCII
   database: my_database_test
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
+  encoding: SQL_ASCII
   database: my_database_production
   pool: 5
   timeout: 5000
