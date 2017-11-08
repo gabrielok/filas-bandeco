@@ -3,8 +3,11 @@
 <title>Melhor site da história</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-bar-block .w3-bar-item {padding:20px}
@@ -16,7 +19,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <a href="javascript:void(0)" onclick="w3_close()"
   class="w3-bar-item w3-button">Fechar Menu</a>
   <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Reportar Erro</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">O que colocar aqui?</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">? : 42</a>
 </nav>
 
 <!-- Top menu -->
@@ -36,29 +39,147 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     <div class="w3-quarter">
-      <img src="central.jpg" alt="Central" style="width:100%;height:200px">
-      <h3>Central</h3>
+        <img src="central.jpg" alt="Central" style="width:100%;height:200px">
+        <a onclick="dropdown(1)" href="javascript:void(0)" class="w3-button" style="font-size:24px" id="droptitle1">
+            <i class="fa fa-caret-right"></i> Central
+        </a>
+        <div id="dropmenu1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="#" class="w3-bar-item w3-button">Clique para indicar que você entrou na fila</a>
+            <a href="#" class="w3-bar-item w3-button">Cardápio</a>
+            <a href="#" class="w3-bar-item w3-button">Outras informações</a>
+        </div>
       <p>Comida em quantidade generosa, com qualidade constante.</p>
     </div>
     <div class="w3-quarter">
-      <img src="fisica.jpg" alt="fisica" style="width:100%;height:200px">
-      <h3>Física</h3>
+        <img src="fisica.jpg" alt="fisica" style="width:100%;height:200px">
+        <a onclick="dropdown(2)" href="javascript:void(0)" class="w3-button" style="font-size:24px" id="droptitle2">
+            <i class="fa fa-caret-right"></i> Física
+        </a>
+        <div id="dropmenu2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+            <a href="#" class="w3-bar-item w3-button">Clique para indicar que você entrou na fila</a>
+            <a href="#" class="w3-bar-item w3-button">Cardápio</a>
+            <a href="#" class="w3-bar-item w3-button">Outras informações</a>
+        </div>
       <p>Apertadasso, comida nem é tão boa.</p>
     </div>
     <div class="w3-quarter">
       <img src="quimica.jpg" alt="quimica" style="width:100%;height:200px">
-      <h3>Química</h3>
+      <a onclick="dropdown(3)" href="javascript:void(0)" class="w3-button" style="font-size:24px" id="droptitle3">
+          <i class="fa fa-caret-right"></i> Química
+      </a>
+      <div id="dropmenu3" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button">Clique para indicar que você entrou na fila</a>
+          <a href="#" class="w3-bar-item w3-button">Cardápio</a>
+          <a href="#" class="w3-bar-item w3-button">Outras informações</a>
+      </div>
       <p>Evite peixe e ovo.</p>
       <p>Coma a trufa do tiozinho.</p>
     </div>
     <div class="w3-quarter">
       <img src="prefeitura.png" alt="Prefeitura" style="width:100%;height:200px">
-      <h3>Prefeitura</h3>
+      <a onclick="dropdown(4)" href="javascript:void(0)" class="w3-button" style="font-size:24px" id="droptitle4">
+          <i class="fa fa-caret-right"></i> Prefeitura
+      </a>
+      <div id="dropmenu4" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+          <a href="#" class="w3-bar-item w3-button">Clique para indicar que você entrou na fila</a>
+          <a href="#" class="w3-bar-item w3-button">Cardápio</a>
+          <a href="#" class="w3-bar-item w3-button">Outras informações</a>
+      </div>
       <p>Metido a gourmet, muitas vezes tem comidas boas. Alta chance de você sair com fome.</p>
     </div>
   </div>
 
 
-  
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+
+  <hr id="about">
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32 w3-center">
+    <h3>About Me, The Food Man</h3><br>
+    <img src="/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <div class="w3-padding-32">
+      <h4><b>I am Who I Am!</b></h4>
+      <h6><i>With Passion For Real, Good Food</i></h6>
+      <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+
+    <div class="w3-third">
+      <h3>BLOG POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Lorem</span><br>
+          <span>Sed mattis nunc</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Ipsum</span><br>
+          <span>Praes tinci sed</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-serif">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">France</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavors</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dressing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>
+      </p>
+    </div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+
+// Accordion
+function dropdown(n) {
+    var x = document.getElementById("dropmenu".concat(n.toString()));
+    if (x.className.indexOf("w3-hide") == -1) {
+        x.className += " w3-hide";
+    } else {
+        x.className = x.className.replace(" w3-hide", "");
+    }
+}
+
+
+// Click on the "Restaurante" link on page load to open the accordion for demo purposes
+// document.getElementById("drop1").click();
+
+</script>
+
 </body>
 </html>
