@@ -1,0 +1,19 @@
+<h1>Lista dos restaurantes</h1>
+<table>
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Website</th>
+          <th colspan="3"></th>
+        </tr>
+    </thead>
+      
+    <%= @restaurant.each do |r| %>
+        <tr>
+            <td><%= r.name %></td>
+            <td><%= r.website %></td>
+            <td><%= link_to 'Show', r %></td>
+        </tr>
+    <% end %>
+
+</table>

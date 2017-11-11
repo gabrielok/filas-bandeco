@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  get 'restaurants/new'
+  resources :restaurants
+  # get 'restaurants/prefeitura'
+  # get 'restaurants/fisica'
+  # get 'restaurants/central'
+  # get 'restaurants/quimica'
   root 'application#homepage'
 end
