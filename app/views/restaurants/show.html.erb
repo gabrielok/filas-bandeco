@@ -1,1 +1,6 @@
-<%= @restaurant.name %>, <%= @restaurant.website%>
+<% provide(:title, "Cardápio " + @restaurant.name) %>
+<%= stylesheet_link_tag "restaurants" %>
+
+<%= @restaurant.name %>
+<br>
+<%= link_to @restaurant.website, @restaurant.website%>
