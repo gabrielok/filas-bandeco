@@ -13,3 +13,22 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+
+// Accordion
+function dropdown(n) {
+    var x = document.getElementById("dropmenu".concat(n.toString()));
+    if (x.className.indexOf("w3-hide") == -1) {
+        x.className += " w3-hide";
+    } else {
+        x.className = x.className.replace(" w3-hide", "");
+    }
+}
