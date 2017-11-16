@@ -1,21 +1,25 @@
 <% provide(:title, "Restaurantes") %>
-
-<h1>Lista dos restaurantes</h1>
-<table>
-    <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Website</th>
-          <th colspan="3">Cardápio</th>
-        </tr>
-    </thead>
-      
-    <% @restaurant.each do |r| %>
-        <tr>
-            <td><%= r.name %></td>
-            <td><%= link_to r.website, r.website %></td>
-            <td><%= link_to 'Link', r %></td>
-        </tr>
-    <% end %>
-
-</table>
+<style>
+.center{margin-left:auto;margin-right:auto}
+</style>
+<h1 align=center>Lista dos restaurantes</h1>
+<div style="text-align:left">
+    <table class="center">
+        <thead>
+            <tr>
+              <th>Nome</th>
+              <th align=center>Website</th>
+              <th colspan="3">Cardápio</th>
+            </tr>
+        </thead>
+          
+        <% @restaurant.each do |r| %>
+            <tr>
+                <td><%= r.name %></td>
+                <td><%= link_to r.website, r.website %></td>
+                <td><%= link_to 'Link', r %></td>
+            </tr>
+        <% end %>
+    
+    </table>
+</div>
