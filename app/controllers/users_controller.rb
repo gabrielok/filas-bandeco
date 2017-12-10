@@ -14,15 +14,18 @@ class UsersController < ApplicationController
       flash[:fail] = "Falha"
       render 'fail'
     end
+    @user.exit = 0
+    @user.time = 0
   end
   
   def show
     @user = User.find(params[:id])
+    @user.time = Time.now.min - @user.updated_at.min
   end
   
   def update
     @user = User.find(params[:id])
-    @user.exit = 1
+    @user.time = Time.now.min - @user.updated_at.min
   end
   
   def destroy

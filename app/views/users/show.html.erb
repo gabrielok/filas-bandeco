@@ -9,7 +9,26 @@
     <% end %>
     <% flash.discard(:success) %>
     
-    <p>Você está na fila há <%= (Time.now.min - @user.updated_at.min) %> minutos</p>
+    <% if @user.exit = 0 %>
+      <h3>Você está na fila há <strong><%= @user.time %> minutos</strong></h3>
+    <% else %>
+      <h3>Boa refeição! Você ficou na fila por <strong><%= @user.time %> minutos</strong> </h3>
+    <% end %>
+    
+    <a onclick="dropdown(3)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle3">
+      <i class="fa fa-caret-right"></i> Desisti
+    </a>
+    <div id="dropmenu3" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-center">
+      <%= form_for(@user, :html => {:method => :delete}) do |f| %>
+        <%= f.number_field :nusp %>
+        <br>
+        <%= f.submit "Sair da fila", class: "btn btn-primary" %>
+      <% end %>
+      <div class="tooltip">Por que meu número USP?
+        <span class="tooltiptext">Seu número USP será utilizado como identificador. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+      </div>
+    </div>
+    <br>
     
     <p>Mais informações:</p>
     <a href="http://sites.usp.br/sas/todos-os-restaurantes-2/">Saite dos restaurantes</a>

@@ -43,7 +43,6 @@
         <%= form_for(@user, :html => {:method => :delete}) do |f| %>
           <%= f.number_field :nusp %>
           <br>
-          <%= f.hidden_field :restaurant, :value => @restaurant.id %>
           <%= f.submit "Sair da fila", class: "btn btn-primary" %>
         <% end %>
         <div class="tooltip">Por que meu número USP?
