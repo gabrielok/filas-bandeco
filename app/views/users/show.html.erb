@@ -1,11 +1,15 @@
-<% provide(:title, "Seu status na fila") %>
-<!-- First Photo Grid-->
+<% res_name = Restaurant.find(@user.restaurant).name %>
+<% provide(:title, "Seu status na fila - (#{res_name})") %>
+
 <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <img src=<%= path_to(Restaurant.find(id = @user.restaurant).name) %> alt="Erro ao carregar a foto" style="width:36%;height:25%">
+    <img src=<%= path_to(res_name) %> alt="Erro ao carregar a foto" style="width:36%;height:25%">
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"> <%= message %> </div>
+      <br>
     <% end %>
     <% flash.discard(:success) %>
+    
+    <p>Você está na fila há <%= (Time.now.min - @user.updated_at.min) %> minutos</p>
     
     <p>Mais informações:</p>
     <a href="http://sites.usp.br/sas/todos-os-restaurantes-2/">Saite dos restaurantes</a>

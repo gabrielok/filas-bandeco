@@ -26,9 +26,13 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    User.find_by(nusp: params[:user][:nusp]).destroy
-    flash[:success] = "Saiu da fila!"
-    redirect_to exit
+    @user = User.find_by(nusp: params[:user][:nusp])
+    if @user.nil?
+      flash[:fail] = "Esse número não está registrado na fila!"
+    else
+      @user.destroy
+      flash[:success] = "Saiu da fila!"
+    end
   end
   
   

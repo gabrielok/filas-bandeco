@@ -40,7 +40,7 @@
         <i class="fa fa-caret-right"></i> Desisti
     </a>
     <div id="dropmenu3" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-center">
-        <%= form_for(@user, :html => {:method => :destroy}) do |f| %>
+        <%= form_for(@user, :html => {:method => :delete}) do |f| %>
           <%= f.number_field :nusp %>
           <br>
           <%= f.hidden_field :restaurant, :value => @restaurant.id %>
@@ -55,7 +55,7 @@
         <i class="fa fa-caret-right"></i> Esqueci de notificar saída
     </a>
     <div id="dropmenu4" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-center">
-        <%= form_for(@user, :html => {:method => :delete, :remote => true}) do |f| %>
+        <%= form_for(@user, :html => {:method => :delete}) do |f| %>
           <%= f.number_field :nusp %>
           <br>
           <%= f.submit "Sair da fila", class: "btn btn-primary" %>
