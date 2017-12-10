@@ -36,9 +36,6 @@ en:
         user:
           attributes:
             nusp:
-              blank: vai tomar no cu porra
-            email:
-              blank: can't be blank
-              invalid: is invalid
-            password:
-              too_short: is too short (minimum is 6 characters)
+              blank: em branco! Digite algo :)
+              too_short: muito curto! Não esqueceu um algarismo?
+              too_long: muito comprido! Alguém esbarrou nas teclas...

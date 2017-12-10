@@ -2,20 +2,25 @@
 
 <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     <img src="" alt="Inserir foto aqui" style="width:36%;height:25%">
+    <br>
+    
     <% if flash.any? %>
       <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="alert"><%= message %></div>
       <% end %>
-      <% flash.discard(:fail) %>
+      <% flash.discard(:fail) %> 
+      <% flash.discard(:success) %>
     <% end %>
     
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <% @user.errors.full_messages.each do |msg| %>
-          <%= msg %>
-          <br>
-        <% end %>
-      </div>
+    <% if @user.nil? == false  %>  
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <% @user.errors.full_messages.each do |msg| %>
+            <%= msg %>
+            <br>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
     
     <a href="/">Voltar à página inicial</a>

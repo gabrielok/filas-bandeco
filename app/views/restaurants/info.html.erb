@@ -1,6 +1,5 @@
 <% provide(:title, @restaurant.name) %>
 
-<!-- First Photo Grid-->
 <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     <img src=<%= path_to(@restaurant.name) %> alt="Erro ao carregar a foto" style="width:36%;height:25%">
     <br>
@@ -22,6 +21,7 @@
         </div>
     </div>
     <br>
+    
     <a onclick="dropdown(2)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle2">
         <i class="fa fa-caret-right"></i> Fui atendido
     </a>
@@ -36,6 +36,7 @@
         </div>
       </div>
     <br>
+    
     <a onclick="dropdown(3)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle3">
         <i class="fa fa-caret-right"></i> Desisti
     </a>
@@ -50,6 +51,7 @@
         </div>
     </div>
     <br>
+    
     <a onclick="dropdown(4)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle4">
         <i class="fa fa-caret-right"></i> Esqueci de notificar saída
     </a>

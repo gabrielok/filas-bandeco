@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root 'application#homepage'
   get 'restaurants/info/:id', to: 'restaurants#info'
   get 'users/:id/exit' => 'users#update'
-  # delete 'users' => 'users#destroy'
+  delete 'users' => 'users#destroy'
 end
