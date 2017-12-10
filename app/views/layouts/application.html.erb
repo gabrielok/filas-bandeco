@@ -6,6 +6,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%
+def path_to(name)
+  name = name.downcase
+  name += ".jpg"
+  return %{/#{name}}
+end
+%>
 
 <html>
   <head>
@@ -19,7 +26,7 @@
     <!-- Sidebar (hidden by default) -->
     <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
       <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Fechar Menu</a>
-      <a href="https://filas-bandeco.herokuapp.com/" onclick="w3_close()" class="w3-bar-item w3-button">Página Inicial</a>
+      <a href="/" onclick="w3_close()" class="w3-bar-item w3-button">Página Inicial</a>
       <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Sobre o Site</a>
     </nav>
     <!-- Top menu -->
@@ -33,7 +40,7 @@
       </div>
     </div>
     
-    <div style="margin-top:60px">
+    <div style="margin-top:65px">
       <%= yield %>
     </div>
   </body>
