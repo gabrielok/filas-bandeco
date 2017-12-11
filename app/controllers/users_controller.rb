@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     time = ((Time.now - @user.created_at)/60).to_i
-    if  @user.time > 60
+    if time > 60
       flash[:fail] = "Parece que você ficou tempo demais na fila, então te removemos automaticamente!"
       @user.destroy
       render 'fail'
