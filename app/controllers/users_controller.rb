@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    redirect_to controller: 'users', action: 'index'
   end
   
   def create
