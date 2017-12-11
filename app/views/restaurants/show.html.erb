@@ -2,5 +2,9 @@
 <%= stylesheet_link_tag "restaurants" %>
 
 <div class="w3-row-padding w3-padding-16 w3-center">
-  <iframe src=<%= @restaurant.menu %> height="600" width="1200" style="border:none;">Cardápio</iframe>
+  <iframe src=<%= @restaurant.menu %> height="600" width="1200" style="margin-top:65px;border:none;">Cardápio</iframe>
+  
+  <br><br>
+  <a href='/'><button onclick="goBack()">Voltar ao Site</button></a>
+  <br>
 </div>

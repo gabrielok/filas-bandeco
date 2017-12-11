@@ -70,15 +70,21 @@
             <a href="/nusp"><img src="/link.jpeg" alt="Link" style="width:20px;height:20px"></a>
           </div>
         </div>
+        
+        <br><br>
+        <a href='/'><button onclick="goBack()">Voltar ao Site</button></a>
         <br>
         
         <br>
         <hr>
         <p>Mais informações:</p>
-        <a href="http://sites.usp.br/sas/todos-os-restaurantes-2/">Saite dos restaurantes</a>
+        <a href="http://sites.usp.br/sas/todos-os-restaurantes-2/">Site dos restaurantes</a>
         <br>
       <% else %>
         <h3>Boa refeição! Você ficou na fila por <strong><%= @user.time %> minutos</strong> </h3>
+        <br><br>
+        <a href='/'><button onclick="goBack()">Voltar ao Site</button></a>
+        <br>
       <% end %>
     <% end %>
 </div>
