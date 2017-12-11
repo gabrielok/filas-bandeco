@@ -1,12 +1,12 @@
 <% provide(:title, @restaurant.name) %>
 
-<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+<div class="w3-row-padding w3-padding-16 w3-center">
     <img src=<%= path_to(@restaurant.name) %> alt="Erro ao carregar a foto" style="width:36%;height:25%">
     <br>
     <h1> Notificar posição na fila </h1>
     <br>
     <a onclick="dropdown(1)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle1">
-        <i class="fa fa-caret-right"></i> Entrei na fila
+      <i class="fa fa-caret-right"></i> Entrei na fila
     </a>
     <div id="dropmenu1" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-center">
         Digite seu NUSP:
@@ -16,56 +16,70 @@
           <%= f.hidden_field :restaurant, :value => @restaurant.id %>
           <%= f.submit "Entrar na fila", class: "btn btn-primary" %>
         <% end %>
+        <br>
         <div class="tooltip">Por que meu número USP?
           <span class="tooltiptext">Seu número USP será utilizado para te identificar. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+          <a href="/nusp"><img src="/link.jpeg" alt="Link" style="width:20px;height:20px"></a>
         </div>
     </div>
     <br>
     
     <a onclick="dropdown(2)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle2">
-        <i class="fa fa-caret-right"></i> Fui atendido
+      <i class="fa fa-caret-right"></i> Fui atendido
     </a>
     <div id="dropmenu2" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-center">
+        Digite seu NUSP:
         <%= form_for(@user) do |f| %>
           <%= f.number_field :nusp %>
           <br>
+          <%= f.hidden_field :exit, :value => 1 %>
           <%= f.submit "Ser atendido", class: "btn btn-primary" %>
         <% end %>
+        <br>
         <div class="tooltip">Por que meu número USP?
-          <span class="tooltiptext">Seu número USP será utilizado como identificador. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+          <span class="tooltiptext">Seu número USP será utilizado para te identificar. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+          <a href="/nusp"><img src="/link.jpeg" alt="Link" style="width:20px;height:20px"></a>
         </div>
-      </div>
+    </div>
     <br>
     
     <a onclick="dropdown(3)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle3">
-        <i class="fa fa-caret-right"></i> Desisti
+      <i class="fa fa-caret-right"></i> Desisti
     </a>
     <div id="dropmenu3" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-center">
+        Digite seu NUSP:
         <%= form_for(@user, :html => {:method => :delete}) do |f| %>
           <%= f.number_field :nusp %>
           <br>
           <%= f.submit "Sair da fila", class: "btn btn-primary" %>
         <% end %>
+        <br>
         <div class="tooltip">Por que meu número USP?
-          <span class="tooltiptext">Seu número USP será utilizado como identificador. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+          <span class="tooltiptext">Seu número USP será utilizado para te identificar. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+          <a href="/nusp"><img src="/link.jpeg" alt="Link" style="width:20px;height:20px"></a>
         </div>
     </div>
     <br>
     
     <a onclick="dropdown(4)" href="javascript:void(0)" class="w3-button w3-center" style="font-size:24px" id="droptitle4">
-        <i class="fa fa-caret-right"></i> Esqueci de notificar saída
+      <i class="fa fa-caret-right"></i> Esqueci de notificar saída
     </a>
     <div id="dropmenu4" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-center">
+        Digite seu NUSP:
         <%= form_for(@user, :html => {:method => :delete}) do |f| %>
           <%= f.number_field :nusp %>
           <br>
           <%= f.submit "Sair da fila", class: "btn btn-primary" %>
         <% end %>
+        <br>
         <div class="tooltip">Por que meu número USP?
-          <span class="tooltiptext">Seu número USP será utilizado como identificador. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+          <span class="tooltiptext">Seu número USP será utilizado para te identificar. Alternativamente, você pode usar qualquer combinação única de 6 a 8 dígitos</span>
+          <a href="/nusp"><img src="/link.jpeg" alt="Link" style="width:20px;height:20px"></a>
         </div>
     </div>
     
+    <br>
+    <hr>
     <p>Mais informações:</p>
     <a href="http://sites.usp.br/sas/todos-os-restaurantes-2/">Saite dos restaurantes</a>
     <br>

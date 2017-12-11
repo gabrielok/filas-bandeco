@@ -1,6 +1,6 @@
 <% provide(:title, "Cardápio " + @restaurant.name) %>
 <%= stylesheet_link_tag "restaurants" %>
 
-<%= @restaurant.name %>
-<br>
-<%= link_to @restaurant.website, @restaurant.website%>
+<div class="w3-row-padding w3-padding-16 w3-center">
+  <iframe src=<%= @restaurant.website %> height="600" width="1200" style="border:none;">Cardápio</iframe>
+</div>

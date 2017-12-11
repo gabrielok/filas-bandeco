@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new
-    @user.nusp = params[:user][:nusp]
-    @user.restaurant = params[:user][:restaurant]
+    @user = User.new(user_params)
+    @user.exit = 0
+    @user.time = 0
     if @user.save
       flash[:success] = "Entrou na fila!"
       redirect_to @user
@@ -14,33 +14,41 @@ class UsersController < ApplicationController
       flash[:fail]
       render 'fail'
     end
-    @user.exit = 0
-    @user.time = 0
   end
   
   def show
     @user = User.find(params[:id])
-    min_diff = Time.now.min - @user.updated_at.min
-    min_diff > 0 ? @user.time = min_diff : @user.time = -min_diff
-    hour_diff = Time.now.hour - @user.updated_at.hour
-    if  hour_diff > 1 or (hour_diff == 1 and min_diff > 0)
+    time = ((Time.now - @user.created_at)/60).to_i
+    if  @user.time > 60
       flash[:fail] = "Parece que você ficou tempo demais na fila, então te removemos automaticamente!"
-      redirect_to destroy, params => {"user"=>{"nusp"=>"%{#{@user.nusp}}"}}
+      @user.destroy
+      render 'fail'
+    else 
+      if @user.exit == 0
+        @user.time = time
+        @user.save
+      end
     end
   rescue ActiveRecord::RecordNotFound
-    flash[:fail] = "Esse número não está registrado na fila!"
+    flash[:fail] = "Esse número não está registrado na fila (ou já saiu)!"
     render 'fail'
   end
   
   def update
-    @user = User.find(params[:id])
-    @user.time = Time.now.min - @user.updated_at.min
+    @user = User.find_by(nusp: params[:user][:nusp])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Saída da fila registrada!"
+      redirect_to @user
+    else
+      flash[:fail] = "Houve um problema"
+      render 'fail'
+    end
   end
   
   def destroy
     @user = User.find_by(nusp: params[:user][:nusp])
     if @user.nil?
-      flash[:fail] = "Esse número não está registrado na fila!"
+      flash[:fail] = "Esse número não está registrado na fila (ou já saiu)!"
       render 'fail'
     else
       @user.destroy
@@ -51,6 +59,6 @@ class UsersController < ApplicationController
   
   private
     def user_params
-      params.require(:nusp, :restaurant).permit(:qrcode)
+      params.require(:user).permit(:nusp, :qrcode, :exit, :restaurant, :time)
     end
 end

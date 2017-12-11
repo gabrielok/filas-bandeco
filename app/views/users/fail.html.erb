@@ -1,12 +1,12 @@
 <% provide(:title, "Problema!") %>
 
-<div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <img src="" alt="Inserir foto aqui" style="width:36%;height:25%">
+<div class="w3-row-padding w3-padding-16 w3-center">
+    <img src="" alt="" style="width:36%;height:25%">
     <br>
     
     <% if flash.any? %>
       <% flash.each do |message_type, message| %>
-        <div class="alert"><%= message %></div>
+        <div class="alert" style="font-size:16px"><%= message %></div>
       <% end %>
       <% flash.discard(:fail) %> 
       <% flash.discard(:success) %>

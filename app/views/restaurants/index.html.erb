@@ -2,9 +2,10 @@
 <style>
 .center{margin-left:auto;margin-right:auto}
 </style>
-<h1 align=center>Lista dos restaurantes</h1>
-<div style="text-align:left">
-    <table class="center">
+
+<div class="w3-row-padding w3-padding-16 w3-center" >
+    <h1>Lista dos restaurantes</h1>
+    <table class="center" style="text-align:left">
         <thead>
             <tr>
               <th>Nome</th>
@@ -20,6 +21,11 @@
                 <td><%= link_to 'Link', r %></td>
             </tr>
         <% end %>
-    
     </table>
+    
+    <br>
+    <hr>
+    <p>Mais informações:</p>
+    <a href="http://sites.usp.br/sas/todos-os-restaurantes-2/">Saite dos restaurantes</a>
+    <br>
 </div>
