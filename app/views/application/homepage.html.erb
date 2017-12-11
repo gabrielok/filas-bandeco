@@ -4,10 +4,10 @@
 <% max_row_size = 1 %>
 <% for i in (0..3) do %>
   <% avg[i] = User.where(restaurant: i, exit: 1).average("time").to_i %>
-  <% avg[0] = 0 %> <!-- manual set -->
-  <% avg[1] = 0 %>
-  <% avg[2] = 0 %>
-  <% avg[3] = 0 %>
+  <% avg[0] = 31 %> <!-- manual set -->
+  <% avg[1] = 13 %>
+  <% avg[2] = 8 %>
+  <% avg[3] = 4 %>
   <% if avg[i] < 5 then pic[i] = 1 %>
   <% elsif avg[i] <10 then pic[i] = 2 %>
   <% elsif avg[i] <20 then pic[i] = 3 %>
