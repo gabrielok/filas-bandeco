@@ -1,5 +1,23 @@
 <% provide(:title, "Página inicial") %>
-<% #TODO calcular tamanho das filas %>
+<% avg = Array.new(4) %>
+<% pic = Array.new(4) %>
+<% max_row_size = 1 %>
+<% for i in (0..3) do %>
+  <% avg[i] = User.where(restaurant: i, exit: 1).average("time").to_i %>
+  <% avg[0] = 0 %> <!-- manual set -->
+  <% avg[1] = 0 %>
+  <% avg[2] = 0 %>
+  <% avg[3] = 0 %>
+  <% if avg[i] < 5 then pic[i] = 1 %>
+  <% elsif avg[i] <10 then pic[i] = 2 %>
+  <% elsif avg[i] <20 then pic[i] = 3 %>
+  <% elsif avg[i] <30 then pic[i] = 4 %>
+  <% else pic[i] = 5 %>
+  <% end %>
+  <% if pic[i] > max_row_size then max_row_size = pic[i] %>
+  <% end %>
+<% end %>
+<% min = max_row_size * 20 + 40 %>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px">
@@ -12,19 +30,23 @@
             <caption style="font-size:24px"><b>Estado das filas</b></caption>
             <tr>
                 <th style="text-align:left;min-width:110px">Central</th>
-                <td style="text-align:left"><img src="/line_3.jpg"></td>
+                <td style="text-align:left;min-width:,<%= min %>px"><img src="/line_<%= pic[2] %>.jpg"></td>
+                <td> <%= avg[2] %>min </td>
             </tr>
             <tr>
                 <th style="text-align:left;min-width:110px">Física</th>
-                <td style="text-align:left"><img src="/line_4.jpg"></td>
+                <td style="text-align:left;min-width:<%= min %>px"><img src="/line_<%= pic[1] %>.jpg"></td>
+                <td> <%= avg[1] %>min </td>
             </tr>
             <tr>
                 <th style="text-align:left;min-width:110px">Química</th>
-                <td style="text-align:left"><img src="/line_2.jpg"></td>
+                <td style="text-align:left;min-width:<%= min %>px"><img src="/line_<%= pic[3] %>.jpg"></td>
+                <td> <%= avg[3] %>min </td>
             </tr>
             <tr>
                 <th style="text-align:left;min-width:110px">Prefeitura</th>
-                <td style="text-align:left"><img src="/line_5.jpg"></td>
+                <td style="text-align:left;min-width:<%= min %>px"><img src="/line_<%= pic[0] %>.jpg"></td>
+                <td> <%= avg[0] %>min </td>
             </tr>
         </table>
     </div>
